@@ -1,4 +1,4 @@
-# ECommerce
+# Floreria
 ## Integrantes
 - Kemely Castillo 
 - Lesly Mita
