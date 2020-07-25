@@ -6,6 +6,7 @@
 
 ## Requisitos
 - `python3`
+- `Django 3.0.8`
 
 ### Usando y activando un entorno virtual
 ```
