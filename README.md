@@ -1,8 +1,8 @@
 # ECommerce
 ## Integrantes
-- Kemely Castillo 
-- Lesly Mita
-- Jerson Zúñiga
+- Kemely Castillo Caccire
+- Lesly Mita Yagua
+- Jerson Zúñiga Coayla
 
 ## Requisitos
 - `python3`
