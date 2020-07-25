@@ -4,8 +4,13 @@
 - Lesly Mita
 - Jerson Zúñiga
 
-### Usando un entorno virtual
+## Requisitos
+- `python3`
+
+### Usando y activando un entorno virtual
 ```
 python -m venv venv
+. venv/bin/activate
+
 ```
 
