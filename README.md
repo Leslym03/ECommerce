@@ -15,3 +15,8 @@ python -m venv venv
 
 ```
 
+##Estilos de Programacion
+- Pipeline
+- Cookbook
+- Trinity
+
