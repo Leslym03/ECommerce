@@ -28,4 +28,4 @@ python -m venv venv
 - Trinity
 
 ## Principios SOLID
-
+- Interface Segregation
