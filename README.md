@@ -2,7 +2,7 @@
 <p align="center">
   <img width="30%" height="30%" src="imagen/TIKA.png">
 </p>
----
+
 ## Integrantes
 - Kemely Castillo Caccire
 - Lesly Mita Yagua
