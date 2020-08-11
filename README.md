@@ -27,9 +27,13 @@ python -m venv venv
 - Cookbook
 - Trinity
 
+## Codigo Legible
+- pycodestyle (agregar descripcion breve, pip y version)
+- autopep8 
+
 ## Principios SOLID
 
-- Single Responsibility Principle
+- Single Responsibility Principle (SRP)
 
 ```python
 class Estado(models.Model):
@@ -51,7 +55,13 @@ class Flor(models.Model):
 
 ```
 
-- Interface Segregation
+- Open/Closed Principle (OCP)
+
+- Liskov Substitution Principle (LSP)
+
+
+- Interface Segregation Principle (ISP)
+
 ```python
 def home(request):
     return render(request, 'core/home.html')
@@ -60,6 +70,29 @@ def contacto(request):
 def tienda(request):
     flores = Flor.objects.all()
     return render(request, 'core/tienda.html', {'flores':flores})
-
 ```
+
+- Dependency Inversion Principle (DIP)
+
+
+## Domain Driven Design
+
+- Ubiquitous Language
+
+
+- Capas de la arquitectura
+
+- Entities
+
+- Value Objects
+
+- Services
+
+- Modules
+
+- Aggregates
+
+- Factories
+
+- Repository
 
