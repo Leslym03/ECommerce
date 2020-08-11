@@ -51,7 +51,7 @@ autopep8 --in-place ./path/to/file
 - Trinity
 
 ## Principios SOLID
-### Single Responsibility Principle
+### Single Responsibility Principle (SRP)
 ```python
 class Estado(models.Model):
     nombre_estado = models.CharField(max_length=13)
@@ -71,7 +71,9 @@ class Flor(models.Model):
         return self.nombre
 
 ```
-
+### Open/Closed Principle (OCP)
+### Liskov Substitution Principle (LSP)
+### Interface Segregation Principle (ISP)
 ### Interface Segregation
 ```python
 def home(request):
@@ -82,12 +84,9 @@ def tienda(request):
     flores = Flor.objects.all()
     return render(request, 'core/tienda.html', {'flores':flores})
 ```
-
-- Dependency Inversion Principle (DIP)
-
+### Dependency Inversion Principle (DIP)
 
 ## Domain Driven Design
-
 - Ubiquitous Language
 
 - Capas de la arquitectura
