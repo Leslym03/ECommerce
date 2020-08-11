@@ -51,7 +51,6 @@ autopep8 --in-place ./path/to/file
 - Trinity
 
 ## Principios SOLID
-
 ### Single Responsibility Principle
 ```python
 class Estado(models.Model):
@@ -82,5 +81,27 @@ def contacto(request):
 def tienda(request):
     flores = Flor.objects.all()
     return render(request, 'core/tienda.html', {'flores':flores})
-
 ```
+
+- Dependency Inversion Principle (DIP)
+
+
+## Domain Driven Design
+
+- Ubiquitous Language
+
+- Capas de la arquitectura
+
+- Entities
+
+- Value Objects
+
+- Services
+
+- Modules
+
+- Aggregates
+
+- Factories
+
+- Repository
