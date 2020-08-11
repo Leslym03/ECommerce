@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 import pymysql
-
+pymysql.version_info = (1, 4, 0, "final", 0)
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -86,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TiendaV',
-        'USER':'leslym',
-        'PASSWORD': 'Leslym0311@',
+        'USER':'marcelo',
+        'PASSWORD': 'marcelozuco',
         'HOST': 'localhost',
     }
 }
