@@ -17,6 +17,9 @@ python -m venv venv
 . venv/bin/activate
 
 ```
+<p align="center">
+  <img width="50%" height="50%" src="imagen/tik.gif">
+</p>
 
 ##Estilos de Programacion
 - Pipeline
