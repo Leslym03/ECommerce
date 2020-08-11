@@ -10,7 +10,6 @@
 
 ## Requisitos
 - `python3`
-- `MySQL 8.0`
 
 ## Configuración
 ### Usando y activando un entorno virtual
@@ -47,33 +46,60 @@ autopep8 --in-place ./path/to/file
 
 ## Estilos de Programación
 - Pipeline
-- Cookbook
+```python
+class CompraView(View):
+
+    def get(self, request):
+        repository = CompraRepositorio()
+        compras = repository.all()
+        return render(request, 'compra/lista_compra.html', {'compras': compras})
+
+    def post(self, request):
+
+        cliente_id = 1  # FAKE
+        producto_id = request.POST['producto_id']
+
+        compra = CompraFactory.create(cliente_id, producto_id)
+
+        CompraRepositorio().save(compra)
+
+        return render(request, 'compra/terminar_compra.html')
+```
+- Objects
+```python
+class Direccion(object):
+
+    def __init__(self, calle, numbero, distrito):
+        self.calle = calle
+        self.numbero = numbero
+        self.distrito = distrito
+```
 - Trinity
+Debido a que se utiliza MVT
 
 ## Principios SOLID
 ### Single Responsibility Principle (SRP)
 ```python
-class Estado(models.Model):
-    nombre_estado = models.CharField(max_length=13)
+from Tienda.Dominio.Repositorio.cliente_repositorio import ClienteRepositorio
+from Tienda.Dominio.Repositorio.producto_repositorio import ProductoRepositorio
+from Tienda.Dominio.Entidades.compra import Order
 
-    def __str__(self):
-        return self.nombre_estado
+class CompraFactory(object):
 
-class Flor(models.Model):
-    imagen = models.ImageField(null=True, blank=True)
-    nombre = models.CharField(max_length=50, primary_key=True)
-    valor = models.IntegerField()
-    descripcion = models.CharField(max_length=150)
-    estado = models.ForeignKey(Estado, on_delete=models.DO_NOTHING)
-    stock = models.IntegerField() 
+    @classmethod
+    def create(cls, cliente_id, producto_id):
 
-    def __str__(self):
-        return self.nombre
+        cliente = ClienteRepositorio().get(cliente_id)
+        producto = ProductoRepositorio().get(producto_id)
 
-```
-### Open/Closed Principle (OCP)
-### Liskov Substitution Principle (LSP)
-### Interface Segregation Principle (ISP)
+        if cliente is None:
+            raise Exception('...')
+
+        if producto is None:
+            raise Exception('...')
+
+        return Compra(producto, cliente)
+
 ### Interface Segregation
 ```python
 def home(request):
@@ -85,22 +111,115 @@ def tienda(request):
     return render(request, 'core/tienda.html', {'flores':flores})
 ```
 ### Dependency Inversion Principle (DIP)
-
+```python
+```
 ## Domain Driven Design
 - Ubiquitous Language
-
+```python
+    def nueva_direccion_envio(self, calle, numbero, distrito):
+        self.direccion_envio = Direccion(calle, numbero, distrito)
+```
 - Capas de la arquitectura
+Modelo - Vista - Template
 
 - Entities
+```python
+class Cliente(object):
 
+    def __init__(self, dni, nombre, apellido):
+        self.dni = dni
+        self.nombre = Nombre(nombre, apellido)
+        self.direccion_envio = None
+
+    def nueva_direccion_envio(self, calle, numbero, distrito):
+        self.direccion_envio = Direccion(calle, numbero, distrito)
+
+    @property
+    def vip(self):
+        # ...
+        return True
+
+```
 - Value Objects
+```python
 
+class Nombre(object):  # value object
+
+    def __init__(self, nombres, apellidos, prefix='Sr'):
+        self.nombres = nombres
+        self.apellidos = apellidos
+        self.prefix = prefix
+
+    @property
+    def full(self):
+        return self.nombre + self.apellido
+
+```
 - Services
+```python
+class Compra(object):
 
+    def __init__(self, producto, client):
+        self.producto_id = producto.id
+        self.cliente_id = cliente.dni
+        self.precio = producto.precio
+
+        if client.vip:
+            self.precio = self.vip_descuento()
+
+    def vip_descuento(self):
+        self.precio -= self.precio * 0.09
+        return self.precio
+
+    def cancel():
+        pass
+        # .....
+```
 - Modules
-
+Compra, producto, cliente
 - Aggregates
+```python
+class Direccion(object):
 
+    def __init__(self, calle, numbero, distrito):
+        self.calle = calle
+        self.numbero = numbero
+        self.distrito = distrito
+```
 - Factories
+```python
+class CompraFactory(object):
 
+    @classmethod
+    def create(cls, cliente_id, producto_id):
+
+        cliente = ClienteRepositorio().get(cliente_id)
+        producto = ProductoRepositorio().get(producto_id)
+
+        if cliente is None:
+            raise Exception('...')
+
+        if producto is None:
+            raise Exception('...')
+
+        # ... OUTRAS REGRAS AQUI
+
+        return Order(producto, cliente)
+
+```
 - Repository
+```python
+class CompraRepositorio(object):
+
+    def __init__(self):
+        self.mapper = ObjectMapper()
+        self.mapper.create_map(Compra, CompraData)
+
+    def all(self):
+        return CompraData.objects.all()
+
+    def save(self, order):
+        compra_data = self.mapper.map(compra, CompraData)
+        compra_data.save()
+
+```
