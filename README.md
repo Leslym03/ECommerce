@@ -39,3 +39,4 @@ def tienda(request):
     return render(request, 'core/tienda.html', {'flores':flores})
 
 ```
+-Single Responsibility Principle
