@@ -1,6 +1,6 @@
 # Floreria TIKA
 <p align="center">
-  <img width="50%" height="50%" src="imagen/TIKA.png">
+  <img width="30%" height="30%" src="imagen/TIKA.png">
 </p>
 ## Integrantes
 - Kemely Castillo Caccire
