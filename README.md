@@ -39,4 +39,24 @@ def tienda(request):
     return render(request, 'core/tienda.html', {'flores':flores})
 
 ```
--Single Responsibility Principle
+- Single Responsibility Principle
+
+```python
+class Estado(models.Model):
+    nombre_estado = models.CharField(max_length=13)
+
+    def __str__(self):
+        return self.nombre_estado
+
+class Flor(models.Model):
+    imagen = models.ImageField(null=True, blank=True)
+    nombre = models.CharField(max_length=50, primary_key=True)
+    valor = models.IntegerField()
+    descripcion = models.CharField(max_length=150)
+    estado = models.ForeignKey(Estado, on_delete=models.DO_NOTHING)
+    stock = models.IntegerField() 
+
+    def __str__(self):
+        return self.nombre
+
+```
