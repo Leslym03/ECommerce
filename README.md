@@ -2,6 +2,7 @@
 <p align="center">
   <img width="30%" height="30%" src="imagen/TIKA.png">
 </p>
+---
 ## Integrantes
 - Kemely Castillo Caccire
 - Lesly Mita Yagua
@@ -21,8 +22,10 @@ python -m venv venv
   <img width="50%" height="50%" src="imagen/tik.gif">
 </p>
 
-##Estilos de Programacion
+## Estilos de Programacion
 - Pipeline
 - Cookbook
 - Trinity
+
+## Principios SOLID
 
