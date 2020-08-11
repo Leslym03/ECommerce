@@ -1,4 +1,7 @@
-# Floreria
+# Floreria TIKA
+<p align="center">
+  <img width="50%" height="50%" src="imagenes/gem.png">
+</p>
 ## Integrantes
 - Kemely Castillo Caccire
 - Lesly Mita Yagua
