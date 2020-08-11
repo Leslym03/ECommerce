@@ -29,3 +29,12 @@ python -m venv venv
 
 ## Principios SOLID
 - Interface Segregation
+```python
+def home(request): #Render del Home
+    return render(request, 'core/home.html')
+
+
+def contacto(request):
+    return render(request, 'core/contacto.html')
+
+```
