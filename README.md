@@ -1,11 +1,10 @@
 # Florería Dulces Detalles
 (descripcion sobre el sistema,arquitectura, introduccion, los requisitos estaran en el txt)
-## Proposito
+### Proposito
 
-## Funcionalidades
+### Funcionalidades
 
-
-## Arquitectura
+### Arquitectura
 (Modelo - Vista - Template, imagen con arquitectura)
 
 
