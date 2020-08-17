@@ -5,6 +5,11 @@
 ## Funcionalidades
 
 
+## Arquitectura
+(Modelo - Vista - Template, imagen con arquitectura)
+
+
+
 
 
 
@@ -54,6 +59,8 @@ autopep8 --in-place ./path/to/file
 ### Trinity
 (Debido a que se utiliza MVT)
 
+### Restful
+
 
 
 
@@ -90,9 +97,6 @@ autopep8 --in-place ./path/to/file
 ### Ubiquitous Language
 ```python
 ```
-### Capas de la arquitectura
-(Modelo - Vista - Template, imagen con arquitectura)
-
 ### Entities
 ```python
 ```
