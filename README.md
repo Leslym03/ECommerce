@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="50%" height="50%" src="imagenes/flores.png">
+</p>
+
 # Florería Dulces Detalles
 (descripcion sobre el sistema,arquitectura, introduccion, los requisitos estaran en el txt)
 ### Proposito
