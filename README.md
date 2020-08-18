@@ -36,6 +36,7 @@ Posee una organización de los 3 paquetes principales los cuales son vista, mode
 - **Modelo**:la capa de acceso a la base de datos.
    - Incluye clases de entidad para los usuarios y clases límite para la interfaz con el sistema de catálogo de productos.
 
+![Usando pycodestyle](doc/imgs/DiagramaPaquetes.png)
 
 
 ## Prácticas de Codificación
@@ -139,7 +140,7 @@ class RemoveProductFromInventory(OrderCompleted):
 ```
 
 ### Dependency Inversion Principle (DIP):
-Los módulos de alto nivel no deben dependen de módulos de bajo nivel. Para ello se posee una abstraccion de los datos de los cuales se crearon repositorios para dad modulo.
+Los módulos de alto nivel no deben dependen de módulos de bajo nivel. Para ello se posee una abstraccion de los datos de los cuales se crearon repositorios para cada modulo.
 ```python
 class AbstractDataMapper(object):
     __metaclass__ = abc.ABCMeta
