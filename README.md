@@ -10,7 +10,7 @@ Dulces Detalles es una plataforma web que nos va a permitir ,ademas de ofrecer u
 </p>
 
 ### Proposito
-
+Crear un sistema que ayude a incrementar el número de ventas y tener más cercanía con los clientes.
 ### Funcionalidades
 
 ### Arquitectura
