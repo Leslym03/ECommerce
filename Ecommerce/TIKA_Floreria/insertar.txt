@@ -1,3 +1,0 @@
-insert into core_flor value('12 Rosas Rojas',69,'Fino ramo de rosas rojas, le hará saber cuánto la amas.',5,1,'ramo1.jpg')
-
-insert into core_flor value('Cesta con girasoles y astromelias',90,'Elegante arreglo de colores suaves y cálidos compuesto de girasoles y astromelias primaverales.',5,2,'ramo2.jpg')
