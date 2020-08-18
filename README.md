@@ -23,7 +23,7 @@ El sistema debe:
 ### Arquitectura
 Posee una organización de los 3 paquetes principales los cuales son vista, modelo y template utilizando el patrón arquitectónico MVT (Modelo Vista Template) en este patrón la vista actuaria como controlador, aunque con pequeños matices esto debido a que se utilizara el Framework Django.
 <p align="center">
-  <img width="30%" height="30%" src="doc/imgs/esquema.png">
+  <img width="50%" height="50%" src="doc/imgs/esquema.png">
 </p>
 - **Vista**:la capa de la lógica de negocios.
    - Contiene clases para interactuar con el sistema para realizar una compra, pedido, registro, etc.
