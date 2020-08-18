@@ -8,6 +8,7 @@
 <p align="center">
   <img width="30%" height="30%" src="doc/imgs/DulcesDetalles.png">
 </p>
+
 ### Proposito
 
 ### Funcionalidades
