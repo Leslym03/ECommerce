@@ -18,10 +18,15 @@ El sistema debe:
 - Tener por artículo:
   - Categoría a la que pertenece.
   - Descripción breve.
-- Realizar operaciones sobre los pedidos:
-  - Modificar, agregar, eliminar y consultar sobre un pedido.
-  - Búsqueda de pedidos por cliente.
-  - Modificación del estado de un pedido.
+- Realizar operaciones sobre los orden:
+  - Modificar, agregar, eliminar y consultar sobre un orden.
+  - Búsqueda de ordenes por cliente.
+  - Modificación del estado de un orden.
+
+<p align="center">
+  <img width="50%" height="50%" src="doc/imgs/rosas.gif">
+</p>
+
 ### Arquitectura
 Posee una organización de los 3 paquetes principales los cuales son vista, modelo y template utilizando el patrón arquitectónico MVT (Modelo Vista Template) en este patrón la vista actuaria como controlador, aunque con pequeños matices esto debido a que se utilizara el Framework Django.
 
@@ -40,7 +45,6 @@ Posee una organización de los 3 paquetes principales los cuales son vista, mode
 
 
 ## Prácticas de Codificación
-(modificar Jerson)
 Este proyecto sigue la guía de estilo [PEP 8](https://www.python.org/dev/peps/pep-0008/) para código en Python.
 
 Podemos automatizar y chequear las convenciones de código usando herramientas como [pycodestyle](https://github.com/PyCQA/pycodestyle) y verificar si cumple con las recomendaciones para luego aplicar cambios de forma automática con [autopep8](https://github.com/hhatto/autopep8).
@@ -69,16 +73,63 @@ count = True
 ```
 
 ## Estilos de Programación
-### Pipeline
+### Pipeline:
+Consiste en ir transformando un flujo de datos en un proceso comprendido por varias fases secuenciales, siendo la entrada de cada una la salida de la anterior.
 ```python
+class CatalogView(View):
+    def get(self, request):
+        products = ProductRepository().all()
+        return render(request, '"products.html".html', {'products': products})
 ```
-### Objects
+### Things:
+Un objeto es una cápsula de datos que expone los procedimientos, donde no se accede a los datos directamente, solo a través de estos procedimientos. A continuacion presentamos al objeto Producto.
 ```python
+class Product(object):
+    def __init__(self, idProduct, title, description, price, category, image, slug):
+        self.set_idProduct(idProduct)
+        self.set_title(title)
+        self.set_description(description)
+        self.set_price(price)
+        self.set_category(category)
+        self.set_image(image)
+        self.set_slug(slug)
+    #...
 ```
+
+### Abstract Things:
+Se describe mediante las operaciones que los objetos de esa abstracción pueden hacer eventualmente. En nuestro caso se utiliza el siguiente objeto abstracto para ser utilizados luego en los repositorios de cada modulo.
+```python
+import abc
+
+class AbstractDataMapper(object):
+    __metaclass__ = abc.ABCMeta
+
+    @abc.abstractmethod
+    def find_all(self):
+        return
+
+    @abc.abstractmethod
+    def find_by_id(self, id):
+        return
+
+    @abc.abstractmethod
+    def create(self):
+        return
+
+    @abc.abstractmethod
+    def update(self):
+        return
+
+    @abc.abstractmethod
+    def delete(self):
+        return
+```
+
 ### Trinity
+La aplicación se divide en tres componentes: el modelo, la vista y el controlador.
+El modelo representa los datos de la aplicación; la vista representa una interpretación específica de los datos; el controlador proporciona entrada / salida.
 (Debido a que se utiliza MVT)
-```python
-```
+
 
 
 
