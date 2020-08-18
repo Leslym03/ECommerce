@@ -39,7 +39,6 @@ Posee una organización de los 3 paquetes principales los cuales son vista, mode
 
 
 ## Prácticas de Codificación
-(modificar Jerson)
 Este proyecto sigue la guía de estilo [PEP 8](https://www.python.org/dev/peps/pep-0008/) para código en Python.
 
 Podemos automatizar y chequear las convenciones de código usando herramientas como [pycodestyle](https://github.com/PyCQA/pycodestyle) y verificar si cumple con las recomendaciones para luego aplicar cambios de forma automática con [autopep8](https://github.com/hhatto/autopep8).
@@ -57,8 +56,15 @@ autopep8 --in-place ./path/to/file
 ```
 ![Usando autopep8](doc/imgs/autopep8.png)
 
-
-
+### Usando flake8
+Con flake8 podemos definir el estilo de programación que la compañía de software usará, teniendo como base las recomendaciones de PEP8. Se definieron las siguientas opciones de configuración:
+```shell
+max-line-length = 80
+per-file-ignores =
+    manage.py:F401
+show_source = True
+count = True
+```
 
 
 
@@ -121,7 +127,7 @@ autopep8 --in-place ./path/to/file
 - **Order**:
 - **Client**:
 
-### Ubiquitous Language: 
+### Ubiquitous Language:
 
 Se nombraron las variables, métodos y clases con lenguaje del dominio de modo que sea autoexplicable
 - ```python new_shipping_address```
@@ -269,7 +275,7 @@ class DomainEvents(object):
         for handler in handlers:
             handler_instance = handler()
             handler_instance.run()
-            
+
 class OrderCompletedView(View):
     #....
     client_id = request.POST['client_id']
@@ -320,4 +326,3 @@ pip install -r requirements
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
 </p>
-
