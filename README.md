@@ -39,6 +39,7 @@ Posee una organización de los 3 paquetes principales los cuales son vista, mode
 
 
 ## Prácticas de Codificación
+(modificar Jerson)
 Este proyecto sigue la guía de estilo [PEP 8](https://www.python.org/dev/peps/pep-0008/) para código en Python.
 
 Podemos automatizar y chequear las convenciones de código usando herramientas como [pycodestyle](https://github.com/PyCQA/pycodestyle) y verificar si cumple con las recomendaciones para luego aplicar cambios de forma automática con [autopep8](https://github.com/hhatto/autopep8).
@@ -56,15 +57,8 @@ autopep8 --in-place ./path/to/file
 ```
 ![Usando autopep8](doc/imgs/autopep8.png)
 
-### Usando flake8
-Con flake8 podemos definir el estilo de programación que la compañía de software usará, teniendo como base las recomendaciones de PEP8. Se definieron las siguientas opciones de configuración:
-```shell
-max-line-length = 80
-per-file-ignores =
-    manage.py:F401
-show_source = True
-count = True
-```
+
+
 
 
 
@@ -97,21 +91,98 @@ count = True
 
 
 ## Principios SOLID
-### Single Responsibility Principle (SRP)
+### Single Responsibility Principle (SRP):
+Tiene como objetivo separar los comportamientos de modo que si surgen errores como resultado de su cambio, no afectarán otros comportamientos no relacionados. 
+Existe para el Modulo Client ya que cada clase posee una responsabilidad unica.
 ```python
+class Client(object):
+    def __init__(self, idClient, name, last_name):
+        self.set_idClient(idClient)
+        self.name = Name(name, last_name)
+        self.shipping_address = None
+    #...
+    
+class Name(object):  
+    def __init__(self, first, last):
+        self.set_first(first)
+        self.set_last(last)
+    #...
+    
+class Address(object):
+    def __init__(self, street, number, city):
+        self.set_street(street)
+        self.set_number(number)
+        self.set_city(city)
+    #...
 ```
-### Open Closed Principle (OCP)
-```python
-```
-### Liskov Substitution Principle (LSP)
-```python
-```
+
 ### Interface Segregation Principle (ISP)
+Tiene como objetivo dividir un conjunto de acciones en conjuntos más pequeños para que una Clase ejecute solo el conjunto de acciones que requiere. Acontinuacion presentamos las accines divididas para Order
+
 ```python
+class OrderCompleted(object):
+    def __init__(self, order):
+        self.order = order
+
+
+class GenerateInvoice(OrderCompleted):
+    def __init__(self):
+        #...
+    def run(self):
+        #...
+
+
+class RemoveProductFromInventory(OrderCompleted):
+    def __init__(self):
+        #...
+    def run(self):
+        #...
 ```
-### Dependency Inversion Principle (DIP)
+
+### Dependency Inversion Principle (DIP):
+Los módulos de alto nivel no deben dependen de módulos de bajo nivel. Para ello se posee una abstraccion de los datos de los cuales se crearon repositorios para dad modulo.
 ```python
+class AbstractDataMapper(object):
+    __metaclass__ = abc.ABCMeta
+
+    @abc.abstractmethod
+    def find_all(self):
+        return
+
+    @abc.abstractmethod
+    def find_by_id(self, id):
+        return
+
+    @abc.abstractmethod
+    def create(self):
+        return
+
+    @abc.abstractmethod
+    def update(self):
+        return
+
+    @abc.abstractmethod
+    def delete(self):
+        return
+
+class ProductRepository(AbstractDataMapper):
+    def find_all(self):
+        #...
+    def find_by_id(self, id):
+        #...
+    def create(self, product):
+        #...
+    def update(self, product):
+    	  #...
+    def delete(self, entity):
+        #...
+    def __load_entity(self, product_model):
+        #...
 ```
+
+
+
+
 
 
 
@@ -129,7 +200,7 @@ Para un mejor desarrollo del proyecto el sistema de dividio en los siguientes mo
 - Client
 
 
-### Ubiquitous Language:
+### Ubiquitous Language: 
 
 Se nombraron las variables, métodos y clases con lenguaje del dominio de modo que sea autoexplicable
 - ```new_shipping_address(self, street, number, city)```: Asigna una nueva dirección de envío para un cliente. 
@@ -292,7 +363,7 @@ class DomainEvents(object):
         for handler in handlers:
             handler_instance = handler()
             handler_instance.run()
-
+            
 class OrderCompletedView(View):
     #....
     client_id = request.POST['client_id']
@@ -343,3 +414,4 @@ pip install -r requirements
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
 </p>
+
