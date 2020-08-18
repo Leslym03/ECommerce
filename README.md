@@ -68,14 +68,16 @@ count = True
 ```
 
 ## Estilos de Programación
-### Pipeline
+### Pipeline:
+
 ```python
 class CatalogView(View):
     def get(self, request):
         products = ProductRepository().all()
         return render(request, '"products.html".html', {'products': products})
 ```
-### Things
+### Things:
+Un objeto es una cápsula de datos que expone los procedimientos, donde no se accede a los datos directamente, solo a través de estos procedimientos. A continuacion presentamos al objeto Producto.
 ```python
 class Product(object):
     def __init__(self, idProduct, title, description, price, category, image, slug):
