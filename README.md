@@ -69,7 +69,7 @@ count = True
 
 ## Estilos de Programación
 ### Pipeline:
-
+Consiste en ir transformando un flujo de datos en un proceso comprendido por varias fases secuenciales, siendo la entrada de cada una la salida de la anterior.
 ```python
 class CatalogView(View):
     def get(self, request):
