@@ -4,6 +4,10 @@
 
 # Florería Dulces Detalles
 (descripcion sobre el sistema,arquitectura, introduccion, los requisitos estaran en el txt)
+
+<p align="center">
+  <img width="50%" height="50%" src="doc/imgs/DulcesDetalles.png">
+</p>
 ### Proposito
 
 ### Funcionalidades
