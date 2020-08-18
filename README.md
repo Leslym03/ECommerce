@@ -22,11 +22,6 @@ El sistema debe:
   - Modificar, agregar, eliminar y consultar sobre un pedido.
   - Búsqueda de pedidos por cliente.
   - Modificación del estado de un pedido.
-  
-<p align="center">
-  <img width="50%" height="50%" src="doc/imgs/rosas.gif">
-</p>
-
 ### Arquitectura
 Posee una organización de los 3 paquetes principales los cuales son vista, modelo y template utilizando el patrón arquitectónico MVT (Modelo Vista Template) en este patrón la vista actuaria como controlador, aunque con pequeños matices esto debido a que se utilizara el Framework Django.
 
@@ -82,8 +77,10 @@ autopep8 --in-place ./path/to/file
 ```
 ### Trinity
 (Debido a que se utiliza MVT)
+```python
+```
 
-### Restful
+
 
 
 
@@ -118,30 +115,188 @@ autopep8 --in-place ./path/to/file
 
 
 ## Conceptos Domain Driven Design (DDD)
-### Ubiquitous Language
-```python
-```
+
+### Modules
+- **Product**:
+- **Order**:
+- **Client**:
+
+### Ubiquitous Language: 
+
+Se nombraron las variables, métodos y clases con lenguaje del dominio de modo que sea autoexplicable
+- ```python new_shipping_address```
+
 ### Entities
 ```python
+class Client(object):
+
+    def __init__(self, idClient, name, last_name):
+        self.set_idClient(idClient)
+        self.name = Name(name, last_name)
+        self.shipping_address = None
+
+    def set_idClient(self, idClient):
+        self.idClient = idClient
+
+    def get_idClient(self):
+        return self.idClient
+
+    def new_shipping_address(self, street, number, city):
+        self.shipping_address = Address(street, number, city)
 ```
+
 ### Value Objects
 ```python
+class Name(object):  
+    def __init__(self, first, last):
+        self.set_first(first)
+        self.set_last(last)
+
+    def set_first(self, first):
+        self.first = first
+
+    def get_first(self):
+        return self.first
+
+    def set_last(self, last):
+        self.last = last
+
+    def get_last(self):
+        return self.last
+
+    @property
+    def full(self):
+        return self.name + self.last_name
 ```
-### Services
-```python
-```
-### Modules
 
 ### Aggregates
 ```python
+class Address(object):
+
+    def __init__(self, street, number, city):
+        self.set_street(street)
+        self.set_number(number)
+        self.set_city(city)
+
+    def set_street(self, street):
+        self.street = street
+
+    def set_number(self, street):
+        self.number = number
+
+    def set_city(self, city):
+        self.city = city
+
+    def get_street(self):
+        return self.street
+
+    def get_number(self):
+        return self.number
+
+    def get_city(self):
+        return self.city
 ```
+
 ### Factories
 ```python
+class OrderFactory(object):
+
+    @classmethod
+    def create(cls, client_id, product_id):
+        client = ClientRepository().get(client_id)
+        product = ProductRepository().get(product_id)
+        #...
+        return Order(product, client)
 ```
 
 ### Repository
 ```python
+
+class ClientRepository(AbstractDataMapper):
+
+    def find_all(self):
+        client_models = ClientModel.objects.all()
+        client_entities = []
+        for client_model in client_models:
+            client_entity = self.__load_entity(client_model)
+            client_entities.append(client_entity)
+        return client_entities
+
+    def find_by_id(self, id):
+        client_model = ClientModel.objects.get(idClient=id)
+        client = self.__load_entity(client_model)
+        return client
+
+    def create(self, client):
+        ClientModel(
+            idClient=client.get_idClient(),
+            first_name=client.get_first(),
+            last_name=client.get_last()
+        ).save()
+
+    def update(self, client):
+        client_model = ClientModel.objects.get(idClient=client.get_idClient())
+        client_model.first_name = client.get_first()
+        client_model.last_name = client.get_last()
+        client_model.save()
+
+    def delete(self, entity):
+        pass
+
+    def __load_entity(self, client_model):
+        client_entity = Client(
+            client_model.idClient,
+            Name(client_model.name)
+        )
+        return client_entity
 ```
+
+### Event
+```python
+class DomainEvents(object):
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def trigger(cls, event):
+
+        handlers = set()
+        for child in event.__class__.__subclasses__():
+            if child not in handlers:
+                handlers.add(child)
+
+        for handler in handlers:
+            handler_instance = handler()
+            handler_instance.run()
+            
+class OrderCompletedView(View):
+    #....
+    client_id = request.POST['client_id']
+    product_id = request.POST['product_id']
+
+    order = OrderFactory.created(client_id,product_id)
+    OrderRepository().save(order)
+    DomainEvents.trigger(OrderCompleted(order))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
