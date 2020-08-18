@@ -44,7 +44,6 @@ Posee una organización de los 3 paquetes principales los cuales son vista, mode
 
 
 ## Prácticas de Codificación
-(modificar Jerson)
 Este proyecto sigue la guía de estilo [PEP 8](https://www.python.org/dev/peps/pep-0008/) para código en Python.
 
 Podemos automatizar y chequear las convenciones de código usando herramientas como [pycodestyle](https://github.com/PyCQA/pycodestyle) y verificar si cumple con las recomendaciones para luego aplicar cambios de forma automática con [autopep8](https://github.com/hhatto/autopep8).
