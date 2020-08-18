@@ -5,7 +5,7 @@
 ---
 
 # Florería Dulces Detalles
-Dulces Detalles es una plataforma web que nos va a permitir ,ademas de ofrecer un portal didáctico que permita registrar las personas que ingresen a la página  y realicen su pedido.
+Dulces Detalles es una plataforma web que nos va a permitir realizar compras de arreglos de flores basado en una tienda  virtual ,ademas de ofrecer un portal didáctico que permita registrar las personas que ingresen a la página  y realicen su pedido.
 
 <p align="center">
   <img width="30%" height="30%" src="doc/imgs/DulcesDetalles.png">
