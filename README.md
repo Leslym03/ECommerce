@@ -119,6 +119,8 @@ class AbstractDataMapper(object):
 ```
 
 ### Trinity
+La aplicación se divide en tres componentes: el modelo, la vista y el controlador.
+El modelo representa los datos de la aplicación; la vista representa una interpretación específica de los datos; el controlador proporciona entrada / salida.
 (Debido a que se utiliza MVT)
 
 
