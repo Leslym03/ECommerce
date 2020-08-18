@@ -57,16 +57,15 @@ autopep8 --in-place ./path/to/file
 ```
 ![Usando autopep8](doc/imgs/autopep8.png)
 
-
-
-
-
-
-
-
-
-
-
+### Usando flake8
+Con flake8 podemos definir el estilo de programación que la compañía de software usará, teniendo como base las recomendaciones de PEP8. Se definieron las siguientas opciones de configuración:
+```shell
+max-line-length = 80
+per-file-ignores =
+    manage.py:F401
+show_source = True
+count = True
+```
 
 ## Estilos de Programación
 ### Pipeline
@@ -92,7 +91,7 @@ autopep8 --in-place ./path/to/file
 
 ## Principios SOLID
 ### Single Responsibility Principle (SRP):
-Tiene como objetivo separar los comportamientos de modo que si surgen errores como resultado de su cambio, no afectarán otros comportamientos no relacionados. 
+Tiene como objetivo separar los comportamientos de modo que si surgen errores como resultado de su cambio, no afectarán otros comportamientos no relacionados.
 Existe para el Modulo Client ya que cada clase posee una responsabilidad unica.
 ```python
 class Client(object):
@@ -101,13 +100,13 @@ class Client(object):
         self.name = Name(name, last_name)
         self.shipping_address = None
     #...
-    
+
 class Name(object):  
     def __init__(self, first, last):
         self.set_first(first)
         self.set_last(last)
     #...
-    
+
 class Address(object):
     def __init__(self, street, number, city):
         self.set_street(street)
@@ -200,10 +199,10 @@ Para un mejor desarrollo del proyecto el sistema de dividio en los siguientes mo
 - Client
 
 
-### Ubiquitous Language: 
+### Ubiquitous Language:
 
 Se nombraron las variables, métodos y clases con lenguaje del dominio de modo que sea autoexplicable
-- ```new_shipping_address(self, street, number, city)```: Asigna una nueva dirección de envío para un cliente. 
+- ```new_shipping_address(self, street, number, city)```: Asigna una nueva dirección de envío para un cliente.
 - ```OrderSummaryView(LoginRequiredMixin, View)```: Vista para el resumen de las ordenes.
 - Funciones para obtener ```get()``` y establecer ```set()``` para las entidades ```Client```, ```Name```, ```Address```, ```Order``` y ```Product```.
 
@@ -231,7 +230,7 @@ class Client(object):
 ```
 
 ### Value Objects:
-La Entidad ```Client``` posee un objeto de valor el cual es ```Name```, que se muestra a continuacion. Name es un objeto de valor ya que es conjunto de propiedades y comportamientos pero no mantiene identidad alguna. 
+La Entidad ```Client``` posee un objeto de valor el cual es ```Name```, que se muestra a continuacion. Name es un objeto de valor ya que es conjunto de propiedades y comportamientos pero no mantiene identidad alguna.
 
 ```python
 class Name(object):  
@@ -363,7 +362,7 @@ class DomainEvents(object):
         for handler in handlers:
             handler_instance = handler()
             handler_instance.run()
-            
+
 class OrderCompletedView(View):
     #....
     client_id = request.POST['client_id']
@@ -414,4 +413,3 @@ pip install -r requirements
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
 </p>
-
