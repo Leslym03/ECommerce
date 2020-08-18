@@ -232,7 +232,7 @@ class PaymentView(View):
             return render(self.request, "payment.html", context)
         else:
             messages.warning(
-                self.request, "You have not added a billing address")
+                self.request, "Usted no agregó una dirección de pago")
             return redirect("core:checkout")
 
     def post(self, *args, **kwargs):
