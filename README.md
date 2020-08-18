@@ -77,6 +77,16 @@ class CatalogView(View):
 ```
 ### Things
 ```python
+class Product(object):
+    def __init__(self, idProduct, title, description, price, category, image, slug):
+        self.set_idProduct(idProduct)
+        self.set_title(title)
+        self.set_description(description)
+        self.set_price(price)
+        self.set_category(category)
+        self.set_image(image)
+        self.set_slug(slug)
+    #...
 ```
 ### Trinity
 (Debido a que se utiliza MVT)
