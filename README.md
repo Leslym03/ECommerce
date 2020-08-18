@@ -24,7 +24,7 @@ El sistema debe:
   - Modificación del estado de un pedido.
   
 <p align="center">
-  <img width="50%" height="50%" src="doc/imgs/rosa.gif">
+  <img width="50%" height="50%" src="doc/imgs/rosas.gif">
 </p>
 
 ### Arquitectura
