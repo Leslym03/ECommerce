@@ -1,6 +1,7 @@
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
 </p>
+---
 
 # Florería Dulces Detalles
 Dulces Detalles es una plataforma web que nos va a permitir ,ademas de ofrecer un portal didáctico que permita registrar las personas que ingresen a la página  y realicen su pedido.
@@ -153,3 +154,9 @@ pip install -r requirements
 - Kemely Castillo Caccire
 - Lesly Mita Yagua
 - Jerson Zúñiga Coayla
+
+---
+<p align="center">
+  <img width="50%" height="50%" src="doc/imgs/flores.png">
+</p>
+
