@@ -116,17 +116,25 @@ autopep8 --in-place ./path/to/file
 
 ## Conceptos Domain Driven Design (DDD)
 
-### Modules
-- **Product**:
-- **Order**:
-- **Client**:
+### Modules:
+Para un mejor desarrollo del proyecto el sistema de dividio en los siguientes modulos. Cada uno formados de clases relacionadas con las funcionalidad de la aplicación.
+- Product
+- Order
+- Client
+
 
 ### Ubiquitous Language: 
 
 Se nombraron las variables, métodos y clases con lenguaje del dominio de modo que sea autoexplicable
-- ```python new_shipping_address```
+- ```new_shipping_address(self, street, number, city)```: Asigna una nueva dirección de envío para un cliente. 
+- ```OrderSummaryView(LoginRequiredMixin, View)```: Vista para el resumen de las ordenes.
+- Funciones para obtener ```get()``` y establecer ```set()``` para las entidades ```Client```, ```Name```, ```Address```, ```Order``` y ```Product```.
 
-### Entities
+
+
+### Entities:
+Existen las entidades Client, Order y Producto ya que son objeto del dominio que mantienen un estado y comportamiento más allá de la ejecución de la aplicación. A continuacion se muestra la entidad Cliente.
+
 ```python
 class Client(object):
 
@@ -145,7 +153,9 @@ class Client(object):
         self.shipping_address = Address(street, number, city)
 ```
 
-### Value Objects
+### Value Objects:
+La Entidad ```Client``` posee un objeto de valor el cual es ```Name```, que se muestra a continuacion. Name es un objeto de valor ya que es conjunto de propiedades y comportamientos pero no mantiene identidad alguna. 
+
 ```python
 class Name(object):  
     def __init__(self, first, last):
@@ -169,7 +179,8 @@ class Name(object):
         return self.name + self.last_name
 ```
 
-### Aggregates
+### Aggregates:
+La Entidad ```Cliente``` posee un agregado ```Address``` ya que esta entidad posee relaciones con otras a nivel de negocio.
 ```python
 class Address(object):
 
@@ -197,7 +208,9 @@ class Address(object):
         return self.city
 ```
 
-### Factories
+### Factories:
+Debido a que la Entidad ```Order``` posee reglas de creación complejas, se creo ```OrderFactory``` para permiter abstraer, separar la lógica y reglas de creación de una entidad, dejando en las Entidad ```Order```  únicamente con las reglas de negocio que son inherentes a ella.
+
 ```python
 class OrderFactory(object):
 
@@ -210,6 +223,8 @@ class OrderFactory(object):
 ```
 
 ### Repository
+Se crearon los siguientes repositorios ```ClientRepository```, ```OrderRepository```, ```ProductRepository``` para que cada uno conozca el mecanismo se está utilizando para implementar la persistencia. A continuacion se muestra el repositorio para Cliente
+
 ```python
 
 class ClientRepository(AbstractDataMapper):
@@ -251,7 +266,9 @@ class ClientRepository(AbstractDataMapper):
         return client_entity
 ```
 
-### Event
+### Event:
+Se crearon eventos ```OrderCompleted(object)```, ```GenerateInvoice(OrderCompleted)```,  ```RemoveProductFromInventory(OrderCompleted)``` para la Entidad  ```Order``` para organizar las operaciones de dominio en reacción a las acciones del cliente, product y eventos de dominio.
+
 ```python
 class DomainEvents(object):
 
