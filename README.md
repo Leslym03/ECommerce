@@ -88,10 +88,39 @@ class Product(object):
         self.set_slug(slug)
     #...
 ```
+
+### Abstract Things:
+Se describe mediante las operaciones que los objetos de esa abstracción pueden hacer eventualmente. En nuestro caso se utiliza el siguiente objeto abstracto para ser utilizados luego en los repositorios de cada modulo.
+```python
+import abc
+
+class AbstractDataMapper(object):
+    __metaclass__ = abc.ABCMeta
+
+    @abc.abstractmethod
+    def find_all(self):
+        return
+
+    @abc.abstractmethod
+    def find_by_id(self, id):
+        return
+
+    @abc.abstractmethod
+    def create(self):
+        return
+
+    @abc.abstractmethod
+    def update(self):
+        return
+
+    @abc.abstractmethod
+    def delete(self):
+        return
+```
+
 ### Trinity
 (Debido a que se utiliza MVT)
-```python
-```
+
 
 
 
