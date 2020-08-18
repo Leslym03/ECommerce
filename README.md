@@ -70,8 +70,12 @@ count = True
 ## Estilos de Programación
 ### Pipeline
 ```python
+class CatalogView(View):
+    def get(self, request):
+        products = ProductRepository().all()
+        return render(request, '"products.html".html', {'products': products})
 ```
-### Objects
+### Things
 ```python
 ```
 ### Trinity
