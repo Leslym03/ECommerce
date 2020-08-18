@@ -12,7 +12,11 @@ Dulces Detalles es una plataforma web que nos va a permitir ,ademas de ofrecer u
 ### Proposito
 Crear un sistema que ayude a incrementar el número de ventas y tener más cercanía con los clientes.
 ### Funcionalidades
-
+El sistema debe:
+- Tener por artículo:
+  - Categoría a la que pertenece.
+  - Descripción breve.
+- Tener un tratamiento de usuarios:
 ### Arquitectura
 (Modelo - Vista - Template, imagen con arquitectura)
 
