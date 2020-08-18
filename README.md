@@ -16,22 +16,19 @@ El sistema debe:
 - Tener por artículo:
   - Categoría a la que pertenece.
   - Descripción breve.
-- Tener un tratamiento de usuarios:
+- Realizar operaciones sobre los pedidos:
+  - Modificar, agregar, eliminar y consultar sobre un pedido.
+  - Búsqueda de pedidos por cliente.
+  - Modificación del estado de un pedido.
 ### Arquitectura
 Posee una organización de los 3 paquetes principales los cuales son vista, modelo y template utilizando el patrón arquitectónico MVT (Modelo Vista Template) en este patrón la vista actuaria como controlador, aunque con pequeños matices esto debido a que se utilizara el Framework Django.
+
 - **Vista**:la capa de la lógica de negocios.
    - Contiene clases para interactuar con el sistema para realizar una compra, pedido, registro, etc.
 - **Template**:la capa de presentación.
    - Contiene clases para cada formularios que los actores usan para comunicarse con el sistema.
 - **Modelo**:la capa de acceso a la base de datos.
    - Incluye clases de entidad para los usuarios y clases límite para la interfaz con el sistema de catálogo de productos.
-
-
-
-
-
-
-
 
 
 
