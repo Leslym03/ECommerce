@@ -18,10 +18,10 @@ El sistema debe:
 - Tener por artículo:
   - Categoría a la que pertenece.
   - Descripción breve.
-- Realizar operaciones sobre los pedidos:
-  - Modificar, agregar, eliminar y consultar sobre un pedido.
-  - Búsqueda de pedidos por cliente.
-  - Modificación del estado de un pedido.
+- Realizar operaciones sobre los orden:
+  - Modificar, agregar, eliminar y consultar sobre un orden.
+  - Búsqueda de ordenes por cliente.
+  - Modificación del estado de un orden.
 
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/rosas.gif">
