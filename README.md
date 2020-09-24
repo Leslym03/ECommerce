@@ -1,3 +1,16 @@
+## Ejecucion del proyecto
+### Usando y activando un entorno virtual
+```shell
+python -m venv venv
+. venv/bin/activate
+```
+### Instalando requisitos de desarrollo
+```shell
+pip install -r requirements.txt
+```
+### Iniciando servidor
+python manage.py runserver
+
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
 </p>
@@ -445,16 +458,6 @@ class OrderCompletedView(View):
 
 
 
-## Ejecucion del proyecto
-### Usando y activando un entorno virtual
-```shell
-python -m venv venv
-. venv/bin/activate
-```
-### Instalando requisitos de desarrollo
-```shell
-pip install -r requirements
-```
 
 ## Integrantes
 - Kemely Castillo Caccire
