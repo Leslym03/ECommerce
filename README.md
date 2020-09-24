@@ -9,7 +9,9 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 ### Iniciando servidor
+```shell
 python manage.py runserver
+```
 
 <p align="center">
   <img width="50%" height="50%" src="doc/imgs/flores.png">
