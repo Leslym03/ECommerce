@@ -1,7 +1,7 @@
 pycodestyle
 autopep8 >= 1.5.4
 pymysql >= 0.10.0
-Django==2.2.14
+Django==2.2.28
 certifi==2019.3.9
 chardet==3.0.4
 defusedxml==0.6.0
